@@ -17,7 +17,7 @@ class Note(models.Model):
     content = models.TextField('Write a note')
     created = models.DateTimeField(editable=False)
     updated = models.DateTimeField()
-    user = models.ForeignKey(User, related_name='notes', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='notes', on_delete=models.CASCADE)
     labels = models.ManyToManyField(Label, related_name='notes',)
     slug = models.SlugField(editable=False)
     # contributors = models.ManyToManyField(User)
