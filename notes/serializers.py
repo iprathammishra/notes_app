@@ -8,6 +8,10 @@ class NoteSerializer(serializers.ModelSerializer):
     """
 Serializing all the Notes
 """
+    author = serializers.SlugRelatedField(
+        queryset=User.objects.all(), slug_field='username'
+    )
+
     class Meta:
         model = Note
         fields = ('id', 'author', 'title', 'content', 'labels', 'created', 'updated')
