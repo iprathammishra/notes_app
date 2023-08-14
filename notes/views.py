@@ -15,19 +15,21 @@ from notes.serializers import NoteSerializer
 # Create your views here.
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def home_page(request):
-    notes = Note.objects.get(author=request.user)
-    serializer = NoteSerializer(notes, many=True)
+    # notes = Note.objects.all()
+    notes_by_author = Note.objects.filter(author_id=request.user.id)
+    serializer = NoteSerializer(notes_by_author, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET', 'POST'])
 def new_edit_note(request, **kwargs):
     if request.method == 'GET':
+
         return render('notes/new_note.html', request)
     elif request.method == 'POST':
-        data = {'text': request.DATA.get('note'), 'author': request.user}
+        data = {'text': request.data.get('note'), 'author': request.user}
         serializer = NoteSerializer(data=data)
         if serializer.is_valid():
             serializer.save()

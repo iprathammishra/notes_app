@@ -21,6 +21,7 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     re_path(r'^accounts/', include('allauth.urls')),
-    path('notes/', login_required(include('notes.urls', namespace='notes')), ),
+    path('notes/', include('notes.urls', namespace='notes'), ),
+    # path('notes/', login_required(include('notes.urls', namespace='notes')), ),
     path('admin/', admin.site.urls),
 ]

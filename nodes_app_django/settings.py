@@ -122,7 +122,7 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 
-# Make email verification mandatory to avoid junk email accounts
+# Make email verification mandatory to avoid junk email account
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 # EMAIL_BACKEND so allauth can proceed to send confirmation emails
