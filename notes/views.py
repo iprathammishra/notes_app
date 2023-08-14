@@ -62,9 +62,9 @@ def delete_edit_note(request, pk):
 
 
 @api_view(['GET'])
-def single_note(request, **kwargs):
+def single_note(request, slug):
     try:
-        note = Note.objects.filter(author=request.user).get(slug=slugify(kwargs['title']))
+        note = Note.objects.filter(author_id=request.user.id).get(slug=slug)
     except Note.DoesNotExist:
         return HttpResponse(status=404)
     if request.method == 'GET':
