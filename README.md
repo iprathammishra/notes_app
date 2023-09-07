@@ -1,0 +1,3 @@
+# Notes App.
+
+_OPEN FOR CONTRIBUTION_
