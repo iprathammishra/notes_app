@@ -107,3 +107,6 @@ media
 # <django-project-name>/staticfiles/
 
 !/nodes_app_django/settings.py
+
+# Secret Key
+sIgnore
